@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import fire from '../config/Fire';
+import './Login.scss'
 
 
 class Login extends React.Component {
@@ -73,7 +74,7 @@ class Login extends React.Component {
                                 Login
                             </Button>
                         </Grid>
-                        <Grid item xs={6} sm={1}>
+                        <Grid item xs={6} sm={1} className="sign-up">
                             <Button variant="contained" color="primary" className="sign-up" type="submit" value="submit" onClick={this.handleSignup}>
                                 New User
                             </Button>

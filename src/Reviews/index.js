@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ComplexGrid(props) {
   const classes = useStyles();
+  console.log(props);
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
@@ -77,7 +78,7 @@ export default function ComplexGrid(props) {
                         <Typography noWrap> RS. 4529</Typography>
                       </Grid>
                     </Grid>
-                  
+                  <Grid />
                   <Grid item>
                   <Typography variant="body2">
                     Have a good day

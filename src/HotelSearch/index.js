@@ -19,17 +19,21 @@ class HotelSearch extends React.Component {
         city: '',
         rooms: null,
         displayResult: false,
-        goToBooingPage: false,
+        goToBookingPage: false,
         hotelData: null,
         userSelection: null,
         displayErrorMessage: false,
-        pendingBooking: null
+        pendingBooking: null,
+        bookingData: null
     }
     componentDidMount() {
         fetch(`http://localhost:5000/pendingBookings?userEmail=${this.props.currentUserEmail}`)
         .then(response => response.json())
         .then(data => {
             this.setState({pendingBooking:data})
+        })
+        .catch(error => {
+            console.log(error) 
         })
     }
 
@@ -62,15 +66,23 @@ class HotelSearch extends React.Component {
         })
     }
 
-    handlePendingBooking = (hotelData) => {
-        this.setState({goToBooingPage: true, hotelData: hotelData})
+    handlePendingBooking = (bookingdata) => {
+        console.log(bookingdata);
+        console.log(this.state.bookingData);
+        console.log(this.state.goToBookingPage);
+        this.setState({goToBookingPage: true});
+        this.setState({bookingData: bookingdata});
+        console.log(this.state.goToBookingPage);
+        console.log(this.state.bookingData);
+        console.log(bookingdata);
+        
     }
 
 
     render() {
         return (
             <div className="hompepage">
-                {!this.state.displayResult && !this.state.goToBooingPage &&
+                {!this.state.displayResult && !this.state.goToBookingPage &&
                 <div className="hotel-search">
                     <h1>Search Your Hotel with ease</h1>
                 
@@ -122,7 +134,7 @@ class HotelSearch extends React.Component {
                         }
                         
                     </form>
-                    {this.state.pendingBooking && 
+                    { this.state.pendingBooking && this.state.pendingBooking.length > 0 &&
                     <div className="pending-booking">
                         <h1>You tried booking for {this.state.pendingBooking[0].hotelName}</h1>
                         <button onClick={() =>this.handlePendingBooking(this.state.pendingBooking[0])}>complete your pending booking</button>
@@ -130,19 +142,19 @@ class HotelSearch extends React.Component {
                     }
                 </div>
                 }
-                {!this.state.displayResult && !this.state.goToBooingPage &&
+                {!this.state.displayResult && !this.state.goToBookingPage &&
                     <div className="reviews">
                         <h1>You don't need to go far to find what matters.</h1>
-                        <Grid container justify="center" spacing="10px">
-                            {[0, 1, 2].map((value) => (
-                                <Grid key={value} item>
+                        <Grid container justify="center" className="dummy-content">
+                            {[0, 1].map((value) => (
+                                <Grid key={value} item xs={6} spacing={2}>
                                     <Reviews />
                                 </Grid>
                             ))}
                         </Grid>
-                        <Grid container justify="center" spacing="10px">
-                            {[0, 1, 2].map((value) => (
-                                <Grid key={value} item>
+                        <Grid container justify="center">
+                            {[0, 1].map((value) => (
+                                <Grid key={value} item xs={6} spacing={2}>
                                     <Reviews />
                                 </Grid>
                             ))}
@@ -152,8 +164,8 @@ class HotelSearch extends React.Component {
                 {this.state.hotelData && this.state.displayResult &&
                     <SearchResults hotelData = {this.state.hotelData} userSelection={this.state.userSelection}/>
                 }
-                { this.state.goToBooingPage &&
-                    <BookingPage hotelDetails={this.state.hotelData}/>
+                { this.state.goToBookingPage && 
+                    <BookingPage hotelDetails={this.state.bookingData}/>
                 }
                 <footer className="footer-container">
                 <Grid container>

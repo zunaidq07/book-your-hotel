@@ -154,7 +154,7 @@ class BookingPage extends React.Component {
                     </div>
                 }
                 {this.state.bookingConfirmed &&
-                    <h3>Yaay, booking has been confirmed for {bookingDetails.name} at {bookingDetails.hotelName}</h3>
+                    <h3 className="confirmation-msg">Yaay, booking has been confirmed for {bookingDetails.name} at {bookingDetails.hotelName}</h3>
                 }
             </div>
         );
