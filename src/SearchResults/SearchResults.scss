@@ -1,0 +1,42 @@
+.side-bar {
+    border-right: 1px solid;
+}
+
+.result-section {
+    display: flex;
+}
+.main-section {
+    padding-left: 40px;
+}
+
+.result-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.description-content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 20px;
+    .hotel-name {
+        margin: 0 10px;
+    }
+    .hotel-address {
+        margin: 5px 10px;
+    }
+    .hotel-rating {
+        margin: 5px 10px;
+    }
+    .hotel-amenities {
+        span {
+            margin-left:10px;
+        }
+    }
+}
+
+.hotel-price {
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+}

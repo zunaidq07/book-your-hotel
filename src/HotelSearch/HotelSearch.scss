@@ -1,0 +1,41 @@
+.react-daterange-picker__wrapper {
+    border: none;
+    margin-top: 25px;
+}
+.MuiButton-root.submit-btn {
+    margin-top: 15px;
+    margin-left: 45px;
+    width: 200px;
+    height: 56px;
+}
+
+.hotel-search {
+    margin: 100px;
+}
+.reviews {
+    margin:80px 0;
+}
+.footer-container {
+    background: #3F51B5;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    li {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+    }
+}
+
+.li {
+    list-style-type: none;
+}
+
+.error-message {
+    color: red;
+}
+
+.pending-booking {
+    background: green;
+}

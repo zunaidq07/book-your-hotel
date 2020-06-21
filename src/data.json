@@ -1,0 +1,476 @@
+{
+  "cities": [
+    {
+      "city": "hyderabad",
+      "hotels": [
+        {
+          "id": 0,
+          "place": "somajiguda",
+          "hotelName": "taj krishna",
+          "rooms": 10,
+          "price": 999,
+          "rating": 5,
+          "type": "super luxury",
+          "address": "neer yashoda hospital, somajiguda"
+        },
+        {
+          "id": 1,
+          "place": "lakdikapul",
+          "hotelName": "hotel hyderabad comfort",
+          "rooms": 10,
+          "price": 700,
+          "rating": 3,
+          "type": "premium",
+          "address": "shamshiri estates, opposite singareni bhavan, beside krishna children hospital"
+        },
+        {
+          "id": 2,
+          "place": "panjagutta",
+          "hotelName": "imperial guest house",
+          "rooms": 0,
+          "price": 1000,
+          "rating": 3,
+          "type": "premium",
+          "address": "neer yashoda hospital, somajiguda"
+        },
+        {
+          "id": 2,
+          "place": "panjagutta",
+          "hotelName": "imperial guest house",
+          "rooms": 0,
+          "price": 1000,
+          "rating": 3,
+          "type": "premium",
+          "address": "neer yashoda hospital, somajiguda"
+        },
+        {
+          "id": 3,
+          "place": "ameerpet",
+          "hotelName": "hotel ruhika",
+          "rooms": 10,
+          "price": 1000,
+          "rating": 3,
+          "type": "premium",
+          "address": "near life hospital, ameerpet"
+        },
+        {
+          "id": 4,
+          "place": "gachibowli",
+          "hotelName": "kanha boutique hotel",
+          "rooms": 10,
+          "price": 1490,
+          "rating": 3,
+          "type": "premium",
+          "address": "neer vijaya bank, aphb colony, hyderabad"
+        }
+      ]
+    },
+    {
+      "city": "bangalore",
+      "hotels": [
+        {
+          "id": 5,
+          "place": "kr puram",
+          "hotelName": "checkin regency",
+          "rooms": 10,
+          "price": 1400,
+          "rating": 4,
+          "type": "premium",
+          "address": "neer yamaha showroom, rk puram, bangalore"
+        },
+        {
+          "id": 6,
+          "place": "whitefield road",
+          "hotelName": "hotel sri udupi park",
+          "rooms": 0,
+          "price": 1570,
+          "rating": 4.1,
+          "type": "premium",
+          "address": "neer itpl, whitefield road, bangalore"
+        },
+        {
+          "id": 7,
+          "place": "whitefield",
+          "hotelName": "hotel sai rennaissance",
+          "rooms": 10,
+          "price": 1600,
+          "rating": 4.4,
+          "type": "premium",
+          "address": "neer whitefield railway staion, kadugodi, bangalore"
+        },
+        {
+          "id": 8,
+          "place": "rr nagar",
+          "hotelName": "athithi comforts",
+          "rooms": 10,
+          "price": 1560,
+          "rating": 3.6,
+          "type": "premium",
+          "address": "neer happy home shopping mall, rr nagar, bangalore"
+        },
+        {
+          "id": 9,
+          "place": "shimoga",
+          "hotelName": "sri anjaneya residency",
+          "rooms": 10,
+          "price": 1470,
+          "rating": 3.9,
+          "type": "premium",
+          "address": "near railway station, shimoga, bangalore"
+        }
+      ]
+    },
+    {
+      "city": "mumbai",
+      "hotels": [
+        {
+          "id": 10,
+          "place": "ghatkopar",
+          "hotelName": "hotel blue sea",
+          "rooms": 10,
+          "price": 1970,
+          "rating": 4.2,
+          "type": "premium",
+          "address": "neer asalpha metro staion, ghatkopar, mumbai"
+        },
+        {
+          "id": 11,
+          "place": "andheri east",
+          "hotelName": "hotel amber international",
+          "rooms": 10,
+          "price": 3280,
+          "rating": 4,
+          "type": "premium",
+          "address": "neer dilkap center, andheri east, mumbai"
+        },
+        {
+          "id": 12,
+          "place": "sakinaka",
+          "hotelName": "hotel blue executive",
+          "rooms": 0,
+          "price": 2971,
+          "rating": 3.8,
+          "type": "premium",
+          "address": "neer saki vihar complex, sakinaka, mumbai"
+        },
+        {
+          "id": 13,
+          "place": "kurla west",
+          "hotelName": "grand luxurious bkc",
+          "rooms": 10,
+          "price": 2190,
+          "rating": 4,
+          "type": "premium",
+          "address": "neer kanakia zillion, kurla west, mumbai"
+        },
+        {
+          "id": 14,
+          "place": "mandvi",
+          "hotelName": "hotel al haram",
+          "rooms": 10,
+          "price": 1050,
+          "rating": 3.5,
+          "type": "premium",
+          "address": "near minera masjid, mandvi, mumbai"
+        }
+      ]
+    },
+    {
+      "city": "kolkata",
+      "hotels": [
+        {
+          "id": 15,
+          "place": "naihati",
+          "hotelName": "blue view hotel pvt ltd",
+          "rooms": 10,
+          "price": 890,
+          "rating": 3.4,
+          "type": "premium",
+          "address": "neer kalyani expressway, naihati, kolkata"
+        },
+        {
+          "id": 16,
+          "place": "action area",
+          "hotelName": "hotel kolkata rooms",
+          "rooms": 10,
+          "price": 1014,
+          "rating": 4.1,
+          "type": "premium",
+          "address": "neer techno india college, action area I, kolkata"
+        },
+        {
+          "id": 17,
+          "place": "newtown",
+          "hotelName": "uttar banga guest house",
+          "rooms": 10,
+          "price": 1250,
+          "rating": 3.5,
+          "type": "premium",
+          "address": "neer city center 2, newtown, kolkata"
+        },
+        {
+          "id": 18,
+          "place": "newtown",
+          "hotelName": "amar raj guest house",
+          "rooms": 10,
+          "price": 950,
+          "rating": 4,
+          "type": "premium",
+          "address": "neer street 318, newtown, kolkata"
+        },
+        {
+          "id": 19,
+          "place": "rajdanga",
+          "hotelName": "guestopolis",
+          "rooms": 0,
+          "price": 1560,
+          "rating": 4.5,
+          "type": "premium",
+          "address": "near accropolis mall, rajdanga main road, kolkata"
+        }
+      ]
+    },
+    {
+      "city": "delhi",
+      "hotels": [
+        {
+          "id": 20,
+          "place": "hauz khas",
+          "hotelName": "smart inn",
+          "rooms": 10,
+          "price": 2250,
+          "rating": 3.4,
+          "type": "premium",
+          "address": "neer green park metro station, hauz khas, delhi"
+        },
+        {
+          "id": 21,
+          "place": "kailash colony",
+          "hotelName": "hotel atithi",
+          "rooms": 0,
+          "price": 2050,
+          "rating": 3.4,
+          "type": "premium",
+          "address": "neer kailash colony metro station, delhi"
+        },
+        {
+          "id": 22,
+          "place": "kailash colony",
+          "hotelName": "krishna residency",
+          "rooms": 10,
+          "price": 2300,
+          "rating": 4.2,
+          "type": "premium",
+          "address": "near kailash colony metro station, delhi"
+        },
+        {
+          "id": 23,
+          "place": "kalkaji",
+          "hotelName": "loyd home",
+          "rooms": 10,
+          "price": 1900,
+          "rating": 4,
+          "type": "premium",
+          "address": "near 24 seven, kalkaji, delhi"
+        },
+        {
+          "id": 24,
+          "place": "chitranjan park",
+          "hotelName": "jagannath",
+          "rooms": 10,
+          "price": 1750,
+          "rating": 4.5,
+          "type": "premium",
+          "address": "near bus stop, chitranjan park, delhi"
+        }
+      ]
+    }
+  ],
+  "confirmedBookings": [
+    {
+      "id": 1,
+      "name": "david malan",
+      "email": "david@test.com",
+      "hotelName": "taj krishna",
+      "userEmail": "user124@test.com",
+      "place": "somajiguda",
+      "type": "super luxury",
+      "rooms": 2,
+      "price": 9119,
+      "address": "neer yashoda hospital, somajiguda"
+    },
+    {
+      "name": "root",
+      "userEmail": "user124@test.com",
+      "email": "root@test.com",
+      "contact": "7019679716",
+      "hotelName": "jagannath",
+      "rooms": 1,
+      "place": "chitranjan park",
+      "type": "premium",
+      "price": 1750,
+      "address": "near bus stop, chitranjan park, delhi",
+      "id": 5
+    },
+    {
+      "name": "zunau",
+      "userEmail": "user124@test.com",
+      "email": "hfhhfjhfj",
+      "contact": "8765446677",
+      "hotelName": "checkin regency",
+      "rooms": 1,
+      "place": "kr puram",
+      "type": "premium",
+      "price": 1400,
+      "address": "neer yamaha showroom, rk puram, bangalore",
+      "id": 6
+    },
+    {
+      "name": "nasir",
+      "userEmail": "user124@test.com",
+      "email": "nasir@test.com",
+      "contact": "87345622939",
+      "hotelName": "checkin regency",
+      "rooms": 1,
+      "place": "kr puram",
+      "type": "premium",
+      "price": 1400,
+      "address": "neer yamaha showroom, rk puram, bangalore",
+      "id": 7
+    },
+    {
+      "name": "goliath",
+      "userEmail": "user124@test.com",
+      "email": "goliath@test.com",
+      "contact": "4765343276",
+      "hotelName": "smart inn",
+      "rooms": 1,
+      "place": "hauz khas",
+      "type": "premium",
+      "price": 2250,
+      "address": "neer green park metro station, hauz khas, delhi",
+      "id": 8
+    },
+    {
+      "name": "ruhi raman",
+      "userEmail": "user124@test.com",
+      "email": "ruhi@test.com",
+      "contact": "78453267",
+      "hotelName": "hotel ruhika",
+      "rooms": 1,
+      "place": "ameerpet",
+      "type": "premium",
+      "price": 1000,
+      "address": "near life hospital, ameerpet",
+      "id": 9
+    },
+    {
+      "name": "ghoxu",
+      "userEmail": "user124@test.com",
+      "email": "ghoxu@test.com",
+      "contact": "8756342398",
+      "hotelName": "hotel blue sea",
+      "rooms": 1,
+      "place": "ghatkopar",
+      "type": "premium",
+      "price": 1970,
+      "address": "neer asalpha metro staion, ghatkopar, mumbai",
+      "id": 10
+    },
+    {
+      "name": "joseph",
+      "userEmail": "user124@test.com",
+      "email": "joseph@test.com",
+      "contact": "859578308",
+      "hotelName": "blue view hotel pvt ltd",
+      "rooms": 1,
+      "place": "naihati",
+      "type": "premium",
+      "price": 890,
+      "address": "neer kalyani expressway, naihati, kolkata",
+      "id": 11
+    },
+    {
+      "name": "krishna",
+      "userEmail": "user124@test.com",
+      "email": "krishna@test.com",
+      "contact": "7687543212",
+      "hotelName": "taj krishna",
+      "rooms": 1,
+      "place": "somajiguda",
+      "type": "super luxury",
+      "price": 999,
+      "address": "neer yashoda hospital, somajiguda",
+      "id": 12
+    },
+    {
+      "name": "maaz",
+      "userEmail": "user124@test.com",
+      "email": "maaz@test.com",
+      "contact": "9845637289",
+      "hotelName": "checkin regency",
+      "rooms": 1,
+      "place": "kr puram",
+      "type": "premium",
+      "price": 1400,
+      "address": "neer yamaha showroom, rk puram, bangalore",
+      "id": 13
+    }
+  ],
+  "pendingBookings": [
+    {
+      "id": 4,
+      "userEmail": "user125@test.com",
+      "hotelName": "taj krishna",
+      "place": "somajiguda",
+      "type": "super luxury",
+      "rooms": 10,
+      "price": 999,
+      "address": "neer yashoda hospital, somajiguda"
+    },
+    {
+      "id": 23,
+      "place": "kalkaji",
+      "hotelName": "loyd home",
+      "rooms": 10,
+      "price": 1900,
+      "rating": 4,
+      "type": "premium",
+      "address": "near 24 seven, kalkaji, delhi",
+      "userEmail": "user124@test.com"
+    },
+    {
+      "id": 20,
+      "place": "hauz khas",
+      "hotelName": "smart inn",
+      "rooms": 10,
+      "price": 2250,
+      "rating": 3.4,
+      "type": "premium",
+      "address": "neer green park metro station, hauz khas, delhi",
+      "userEmail": "user124@test.com"
+    },
+    {
+      "id": 3,
+      "place": "ameerpet",
+      "hotelName": "hotel ruhika",
+      "rooms": 10,
+      "price": 1000,
+      "rating": 3,
+      "type": "premium",
+      "address": "near life hospital, ameerpet",
+      "userEmail": "user124@test.com"
+    },
+    {
+      "id": 10,
+      "place": "ghatkopar",
+      "hotelName": "hotel blue sea",
+      "rooms": 10,
+      "price": 1970,
+      "rating": 4.2,
+      "type": "premium",
+      "address": "neer asalpha metro staion, ghatkopar, mumbai",
+      "userEmail": "user124@test.com"
+    }
+  ]
+}
