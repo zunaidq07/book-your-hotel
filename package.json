@@ -17,8 +17,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "json-server": "json-server --watch src/data.json --port=5000",
+    "dev": "concurrently \"npm start\" \"npm run json-server\"",
+    "firebase": "^7.15.3",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

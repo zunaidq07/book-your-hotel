@@ -53,7 +53,8 @@ class BookingPage extends React.Component {
     render() {
         let user = firebase.auth().currentUser;
         let userEmail = user ? user.email : '';
-        const { hotelDetails } = this.props
+        const { hotelDetails, userSelection } = this.props;
+        // console.log('hotelDetails', hotelDetails);
         let bookingDetails = this.state.diplayPaymentTab ? 
             { 
                 name: this.state.name,
@@ -61,7 +62,7 @@ class BookingPage extends React.Component {
                 email: this.state.email,
                 contact: this.state.contact,
                 hotelName: hotelDetails.hotelName,
-                rooms: 1,
+                rooms: userSelection ? userSelection.rooms : 1,
                 place: hotelDetails.place,
                 type: hotelDetails.type,
                 price: hotelDetails.price,
@@ -124,7 +125,7 @@ class BookingPage extends React.Component {
 
                                             />
                                         </Grid>
-                                        <Grid item xs={6} sm={6}>
+                                        <Grid item xs={6} sm={6} className="continue-btn-section">
                                             <Button variant="contained" color="primary" className="continue-btn" type="submit" value="Submit">
                                                 Continue
                                             </Button>
@@ -146,8 +147,8 @@ class BookingPage extends React.Component {
                                 }
                             </Grid>
                             <Grid item xs={6} sm={6}>
-                                <div className="details-section">
-                                    <Reviews bookinData = {bookingDetails}/>
+                                <div className="description-section">
+                                    <Reviews bookingData = {hotelDetails} userSelection = {userSelection}/>
                                 </div>
                             </Grid>
                         </Grid>

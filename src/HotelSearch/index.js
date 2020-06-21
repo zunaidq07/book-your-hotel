@@ -56,9 +56,7 @@ class HotelSearch extends React.Component {
         fetch(`http://localhost:5000/cities?city=${this.state.city}`)
         .then(response => response.json())
         .then(data => {
-            this.setState({hotelData:data[0].hotels})
-            this.setState({displayResult: true})
-            this.setState({displayErrorMessage: false})
+            this.setState({hotelData:data[0].hotels, displayResult: true, displayErrorMessage: false})
         })
         .catch(error => {
             this.setState({displayErrorMessage: true})
@@ -66,15 +64,17 @@ class HotelSearch extends React.Component {
         })
     }
 
-    handlePendingBooking = (bookingdata) => {
-        console.log(bookingdata);
+    handlePendingBooking = () => {
         console.log(this.state.bookingData);
         console.log(this.state.goToBookingPage);
         this.setState({goToBookingPage: true});
-        this.setState({bookingData: bookingdata});
+        this.setState({bookingData: this.state.pendingBooking[0]},
+            function () {                        
+                console.log(this.state.bookingData); 
+              } 
+            );
         console.log(this.state.goToBookingPage);
         console.log(this.state.bookingData);
-        console.log(bookingdata);
         
     }
 
@@ -91,7 +91,7 @@ class HotelSearch extends React.Component {
                             <Grid item xs={6} sm={4}>
                                 <TextField
                                     id="outlined-full-width"
-                                    placeholder="Search by City, Hotel or locality"
+                                    placeholder="enter city e.g bangalore , delhi or mumbai"
                                     fullWidth
                                     margin="normal"
                                     InputLabelProps={{
@@ -137,7 +137,9 @@ class HotelSearch extends React.Component {
                     { this.state.pendingBooking && this.state.pendingBooking.length > 0 &&
                     <div className="pending-booking">
                         <h1>You tried booking for {this.state.pendingBooking[0].hotelName}</h1>
-                        <button onClick={() =>this.handlePendingBooking(this.state.pendingBooking[0])}>complete your pending booking</button>
+                        <Button variant="contained" color="primary" onClick={this.handlePendingBooking}>
+                            complete your booking
+                         </Button>
                     </div>
                     }
                 </div>

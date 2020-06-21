@@ -4,8 +4,12 @@
         margin-right: auto;
         margin-left: 40px;
         a{
+            display: flex;
             text-decoration: none;
             color: white
+        }
+        span {
+            margin: 5px;
         }
     }
     .profile-details {

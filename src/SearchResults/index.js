@@ -27,6 +27,7 @@ class SearchResults extends React.Component {
     }
     render() {
         const { userSelection } = this.props;
+        console.log('userSelection', userSelection)
         const { hotelData } = this.props;
         return (
             <div>
@@ -74,7 +75,7 @@ class SearchResults extends React.Component {
                 </div>
             }
             {this.state.hotelDetails &&
-                <BookingPage hotelDetails={ this.state.hotelDetails}/>
+                <BookingPage hotelDetails={ this.state.hotelDetails} userSelection={userSelection}/>
             }
             </div>
         );

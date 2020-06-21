@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ComplexGrid(props) {
   const classes = useStyles();
   console.log(props);
+  const rooms = props.userSelection ? props.userSelection.rooms : 1;
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
@@ -67,7 +68,7 @@ export default function ComplexGrid(props) {
                         {(new Date().toDateString())}
                       </Grid>
                       <Grid item xs zeroMinWidth>
-                        <Typography noWrap> 1 Room, 1Guest</Typography>
+                        <Typography noWrap> {rooms}Rooms</Typography>
                       </Grid>
                     </Grid>
                     <Grid container wrap="nowrap" spacing={2}>
@@ -88,9 +89,11 @@ export default function ComplexGrid(props) {
                 }
               </Grid>
             </Grid>
+            {!props.bookingData &&
             <Grid item>
               <Typography variant="subtitle1">$19.00</Typography>
             </Grid>
+            }
           </Grid>
         </Grid>
       </Paper>

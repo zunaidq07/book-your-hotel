@@ -4,6 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import HomeIcon from '@material-ui/icons/Home';
 import './AppBar.scss'
 import fire from '../config/Fire';
 
@@ -36,7 +37,7 @@ export default function MenuAppBar(props) {
     <div>
       <AppBar position="static">
           <div className="navigation-item">
-            <h2 className="brand-title"><a href="/">Book Your Hotel</a></h2>
+            <h2 className="brand-title"><a href="/"><HomeIcon fontSize="large"/><span>Book Your Hotel</span></a></h2>
             <div class='profile-details'>
               <IconButton
                 aria-label="account of current user"
