@@ -54,7 +54,6 @@ class BookingPage extends React.Component {
         let user = firebase.auth().currentUser;
         let userEmail = user ? user.email : '';
         const { hotelDetails, userSelection } = this.props;
-        // console.log('hotelDetails', hotelDetails);
         let bookingDetails = this.state.diplayPaymentTab ? 
             { 
                 name: this.state.name,

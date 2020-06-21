@@ -65,16 +65,12 @@ class HotelSearch extends React.Component {
     }
 
     handlePendingBooking = () => {
-        console.log(this.state.bookingData);
-        console.log(this.state.goToBookingPage);
         this.setState({goToBookingPage: true});
         this.setState({bookingData: this.state.pendingBooking[0]},
             function () {                        
                 console.log(this.state.bookingData); 
               } 
             );
-        console.log(this.state.goToBookingPage);
-        console.log(this.state.bookingData);
         
     }
 

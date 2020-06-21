@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ComplexGrid(props) {
   const classes = useStyles();
-  console.log(props);
   const rooms = props.userSelection ? props.userSelection.rooms : 1;
   return (
     <div className={classes.root}>
