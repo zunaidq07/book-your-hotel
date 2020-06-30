@@ -4,8 +4,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from "@material-ui/core/Button";
 import Reviews from '../Reviews';
 import firebase from '../config/Fire'
+import 'firebase/firestore'
 import './BookingPage.scss';
-import fire from '../config/Fire';
 
 class BookingPage extends React.Component {
     state = { 
@@ -31,24 +31,19 @@ class BookingPage extends React.Component {
 
     confirmBooking = (bookingDetails) => {
         this.setState({bookingConfirmed: true});
-        fetch('http://localhost:5000/confirmedBookings', {
-                method: 'POST',
-                headers : new Headers(),
-                body:JSON.stringify(bookingDetails),
-                headers: {"Content-Type" : "application/json"}
-            })
-            .then(response => response.json())
-            .then(data => {
-                fetch(`http://localhost:5000/pendingBookings?userEmail=${bookingDetails.userEmail}`)
-                .then(response => response.json())
-                .then(data => {
-                    const dataToRemove = data.find(dataObj => dataObj.hotelName === bookingDetails.hotelName);
-                    fetch('http://localhost:5000/pendingBookings/' + dataToRemove.id, {
-                        method: 'DELETE',
-                        headers: {"Content-Type" : "application/json"}
-                    })
+        const firestore = firebase.firestore()
+
+        firestore.collection('confirmedBookings').add(bookingDetails).then(() => {
+            firestore.collection('pendingBookings').where('userEmail', '==', `${bookingDetails.userEmail}`).get().then((snapshot) => {
+                const dataToRemove = snapshot.docs.find(doc => {
+                    if(doc.data().hotelName === bookingDetails.hotelName) {
+                        return doc.id
+                    }
                 })
+                firestore.collection('pendingBookings').doc(dataToRemove.id).delete()
             })
+        }).catch((err) => console.log(err))
+
     }
     render() {
         let user = firebase.auth().currentUser;

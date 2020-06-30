@@ -5,6 +5,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Rating from '@material-ui/lab/Rating';
 import BookingPage from '../BookingPage'
+import firebase from '../config/Fire'
+import 'firebase/firestore'
 import './SearchResults.scss';
 
 class SearchResults extends React.Component {
@@ -17,13 +19,19 @@ class SearchResults extends React.Component {
     }
     handleBooking = (hotel) => {
         hotel.userEmail = this.props.userSelection.userEmail;
-        fetch('http://localhost:5000/pendingBookings', {
-            method: 'POST',
-            headers : new Headers(),
-            body:JSON.stringify(hotel),
-            headers: {"Content-Type" : "application/json"}
+        const firestore = firebase.firestore()
+        firestore.collection('pendingBookings').add(hotel).then(() => {
+            this.setState({displayBookingPage: true, hotelDetails: hotel})
+        }).catch(err => {
+            console.log('error in posting data')
         })
-        this.setState({displayBookingPage: true, hotelDetails: hotel})
+
+        // fetch('https://my-json-server.typicode.com/zunaidq07/fakeData/pendingBookings', {
+        //     method: 'POST',
+        //     headers : new Headers(),
+        //     body:JSON.stringify(hotel),
+        //     headers: {"Content-Type" : "application/json"}
+        // })
     }
     render() {
         const { userSelection } = this.props;

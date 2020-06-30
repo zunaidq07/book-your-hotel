@@ -5,7 +5,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Reviews from '../Reviews';
 import BookingPage from '../BookingPage';
-import firebase from '../config/Fire';
+import firebase from '../config/Fire'
+import 'firebase/firestore'
 import SearchResults from '../SearchResults';
 import './HotelSearch.scss'
 
@@ -27,10 +28,17 @@ class HotelSearch extends React.Component {
         bookingData: null
     }
     componentDidMount() {
-        fetch(`http://localhost:5000/pendingBookings?userEmail=${this.props.currentUserEmail}`)
-        .then(response => response.json())
-        .then(data => {
-            this.setState({pendingBooking:data})
+        const firestore = firebase.firestore()
+        firestore.collection('pendingBookings').where('userEmail', '==', `${this.props.currentUserEmail}`).get()
+        .then((snapshot) => {
+            let pendingBookingData = []
+            snapshot.docs.forEach((doc) => {
+                pendingBookingData.push(doc.data())
+            })
+
+            this.setState({pendingBooking:pendingBookingData},()=>{
+                console.log('booking pending')
+            })
         })
         .catch(error => {
             console.log(error) 
@@ -53,25 +61,22 @@ class HotelSearch extends React.Component {
             setUserSelection.userEmail = this.props.currentUserEmail;
         }
         this.setState({userSelection: setUserSelection})
-        fetch(`http://localhost:5000/cities?city=${this.state.city}`)
-        .then(response => response.json())
-        .then(data => {
-            this.setState({hotelData:data[0].hotels, displayResult: true, displayErrorMessage: false})
-        })
-        .catch(error => {
+        const firestore = firebase.firestore()
+        firestore.collection(this.state.city).get().then((snapshot) => {
+            let hotelResults = []
+            snapshot.docs.forEach(doc => {
+                hotelResults.push(doc.data())
+            })
+            this.setState({hotelData: hotelResults, displayResult: true, displayErrorMessage: false})
+        }).catch((err) => {
             this.setState({displayErrorMessage: true})
-            console.log(error) 
+            console.log(err)
         })
     }
 
     handlePendingBooking = () => {
+        this.setState({bookingData: this.state.pendingBooking[0]});
         this.setState({goToBookingPage: true});
-        this.setState({bookingData: this.state.pendingBooking[0]},
-            function () {                        
-                console.log(this.state.bookingData); 
-              } 
-            );
-        
     }
 
 

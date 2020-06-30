@@ -12,6 +12,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import firebase from '../config/Fire'
+import 'firebase/firestore'
 import './MyBookings.scss'
 
 const useStyles = makeStyles((theme) => ({
@@ -33,16 +34,30 @@ export default function MyBookings() {
   const currentUser = firebase.auth().currentUser;
   const currentUserEmail = currentUser.email;
 
-  // const getData
-
   useEffect(() => {
-    fetch(`http://localhost:5000/confirmedBookings?userEmail=${currentUserEmail}`)
-    .then(response => response.json())
-    .then(data => setConfirmedBookings(data));
+    const firestore = firebase.firestore()
+    firestore.collection('confirmedBookings').where('userEmail', '==', `${currentUserEmail}`).get().then((snapshot) => {
+      let confirmedBookings = []
+      snapshot.docs.forEach((doc)=> {
+        confirmedBookings.push(doc.data())
+      })
+      setConfirmedBookings(confirmedBookings)
+    })
 
-    fetch(`http://localhost:5000/pendingBookings?userEmail=${currentUserEmail}`)
-    .then(response => response.json())
-    .then(data => setpendingBookings(data));
+    firestore.collection('pendingBookings').where('userEmail', '==', `${currentUserEmail}`).get().then((snapshot) => {
+      let pendingBookings = []
+      snapshot.docs.forEach((doc)=> {
+        pendingBookings.push(doc.data())
+      })
+      setpendingBookings(pendingBookings)
+    })
+    // fetch(`https://my-json-server.typicode.com/zunaidq07/fakeData/confirmedBookings?userEmail=${currentUserEmail}`)
+    // .then(response => response.json())
+    // .then(data => setConfirmedBookings(data));
+
+    // fetch(`https://my-json-server.typicode.com/zunaidq07/fakeData/pendingBookings?userEmail=${currentUserEmail}`)
+    // .then(response => response.json())
+    // .then(data => setpendingBookings(data));
   }, [])
 
   return (

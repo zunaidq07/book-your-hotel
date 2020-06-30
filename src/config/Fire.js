@@ -16,7 +16,5 @@ import 'firebase/auth';
   };
   // Initialize Firebase
   const fire = firebase.initializeApp(firebaseConfig);
-//   firebase.analytics();
-firebase.firestore();
 
   export default fire;
