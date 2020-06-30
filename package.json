@@ -17,7 +17,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "json-server": "json-server --watch src/data.json --port=5000",
     "firebase": "^7.15.3",
     "eject": "react-scripts eject"
   },
