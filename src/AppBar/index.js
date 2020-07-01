@@ -24,12 +24,13 @@ export default function MenuAppBar(props) {
     fire.auth().signOut();
   }
 
-  const handleProfile = () => {
-    
-  }
-
   const handleBookings = () => {
     props.handleBookings(true);
+    setAnchorEl(null);
+  }
+
+  const handleProfile = () => {
+    props.handleProfile(true);
     setAnchorEl(null);
   }
 
@@ -38,7 +39,7 @@ export default function MenuAppBar(props) {
       <AppBar position="static">
           <div className="navigation-item">
             <h2 className="brand-title"><a href="/"><HomeIcon fontSize="large"/><span>Book Your Hotel</span></a></h2>
-            <div class='profile-details'>
+            <div className='profile-details'>
               <IconButton
                 aria-label="account of current user"
                 aria-controls="menu-appbar"

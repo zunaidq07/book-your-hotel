@@ -90,7 +90,7 @@ export default function ComplexGrid(props) {
             </Grid>
             {!props.bookingData &&
             <Grid item>
-              <Typography variant="subtitle1">$19.00</Typography>
+              <Typography variant="subtitle1">RS. 3421</Typography>
             </Grid>
             }
           </Grid>

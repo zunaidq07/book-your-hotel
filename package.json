@@ -17,6 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "build": "react-scripts build",
     "firebase": "^7.15.3",
     "eject": "react-scripts eject"
   },

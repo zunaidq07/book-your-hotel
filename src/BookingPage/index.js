@@ -13,7 +13,10 @@ class BookingPage extends React.Component {
         email : '',
         contact: null,
         diplayPaymentTab: false,
-        bookingConfirmed: false
+        bookingConfirmed: false,
+        emailValidation: null,
+        nameValidation: null,
+        contactValidation: null
     }
 
     handleName = event => this.setState({ name: event.target.value });
@@ -23,7 +26,18 @@ class BookingPage extends React.Component {
     handleContact = event => this.setState({ contact: event.target.value });
     handleSubmit = event => {
         event.preventDefault();
-        if(this.state.name && this.state.email && this.state.contact) {
+        const isValidContact = this.state.contact ? (Number.isInteger(parseInt(this.state.contact)) && this.state.contact.length>=10) : false;
+
+        const isValidEmail = /^\S+@\S+\.\S+$/.test(this.state.email)
+
+        this.setState({nameValidation: (!this.state.name ? 'name of guest is required' : null)})
+
+        this.setState({emailValidation: ( !isValidEmail ? 'valid email of guest is required' : null)})
+
+        this.setState({contactValidation: (!isValidContact ?  'valid contact number is required' : null)})
+
+        if(this.state.name && this.state.email && isValidContact) {
+            console.log(typeof this.state.contact)
             this.setState({ diplayPaymentTab: true});
         }
         else {console.log('error in filling personal details');}
@@ -79,13 +93,15 @@ class BookingPage extends React.Component {
                                             placeholder="name"
                                             fullWidth
                                             margin="normal"
+                                            required
                                             InputLabelProps={{
                                                 shrink: true,
                                             }}
                                             variant="outlined"
                                             value={this.state.name}
                                             onChange={this.handleName}
-
+                                            helperText={this.state.nameValidation}
+                                            error={this.state.nameValidation}
                                         />
                                     </Grid>
                                     <Grid item xs={6} sm={6}>
@@ -93,14 +109,17 @@ class BookingPage extends React.Component {
                                             id="outlined-full-width"
                                             placeholder="Email"
                                             fullWidth
+                                            type="email"
                                             margin="normal"
+                                            required
                                             InputLabelProps={{
                                                 shrink: true,
                                             }}
                                             variant="outlined"
                                             value={this.state.email}
                                             onChange={this.handleEmail}
-
+                                            helperText={this.state.emailValidation}
+                                            error={this.state.emailValidation}
                                         />
                                     </Grid>
                                     <Grid container>
@@ -109,6 +128,7 @@ class BookingPage extends React.Component {
                                                 id="outlined-full-width"
                                                 placeholder="Mobile Number"
                                                 fullWidth
+                                                required
                                                 margin="normal"
                                                 InputLabelProps={{
                                                     shrink: true,
@@ -116,7 +136,8 @@ class BookingPage extends React.Component {
                                                 variant="outlined"
                                                 value={this.state.contact}
                                                 onChange={this.handleContact}
-
+                                                helperText={this.state.contactValidation}
+                                                error={this.state.contactValidation}
                                             />
                                         </Grid>
                                         <Grid item xs={6} sm={6} className="continue-btn-section">

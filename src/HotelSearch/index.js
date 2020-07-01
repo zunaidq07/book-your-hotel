@@ -18,14 +18,15 @@ class HotelSearch extends React.Component {
     state = {
         date: [new Date(), ((new Date()).setDate(new Date().getDate() + 1))],
         city: '',
-        rooms: null,
+        rooms: 1,
         displayResult: false,
         goToBookingPage: false,
         hotelData: null,
         userSelection: null,
         displayErrorMessage: false,
         pendingBooking: null,
-        bookingData: null
+        bookingData: null,
+        cityValidation: null
     }
     componentDidMount() {
         const firestore = firebase.firestore()
@@ -47,7 +48,7 @@ class HotelSearch extends React.Component {
 
     onChange = date => this.setState({ date });
 
-    handleCity = event => this.setState({ city: event.target.value });
+    handleCity = event => this.setState({ city: event.target.value.toLowerCase() });
 
     handleRoomCount = event => this.setState({ rooms: event.target.value });
 
@@ -61,17 +62,22 @@ class HotelSearch extends React.Component {
             setUserSelection.userEmail = this.props.currentUserEmail;
         }
         this.setState({userSelection: setUserSelection})
-        const firestore = firebase.firestore()
-        firestore.collection(this.state.city).get().then((snapshot) => {
-            let hotelResults = []
-            snapshot.docs.forEach(doc => {
-                hotelResults.push(doc.data())
+        if(this.state.city) {
+            const firestore = firebase.firestore()
+            firestore.collection(this.state.city).get().then((snapshot) => {
+                let hotelResults = []
+                snapshot.docs.forEach(doc => {
+                    hotelResults.push(doc.data())
+                })
+                this.setState({hotelData: hotelResults, displayResult: true, displayErrorMessage: false})
+            }).catch((err) => {
+                console.log('could not found data')
+                this.setState({displayErrorMessage: true})
+                console.log(err)
             })
-            this.setState({hotelData: hotelResults, displayResult: true, displayErrorMessage: false})
-        }).catch((err) => {
-            this.setState({displayErrorMessage: true})
-            console.log(err)
-        })
+        } else {
+            this.setState({cityValidation: 'city is required to search hotel'})
+        }
     }
 
     handlePendingBooking = () => {
@@ -91,6 +97,7 @@ class HotelSearch extends React.Component {
                         <Grid container>
                             <Grid item xs={6} sm={4}>
                                 <TextField
+                                    error={this.state.cityValidation}
                                     id="outlined-full-width"
                                     placeholder="enter city e.g bangalore , delhi or mumbai"
                                     fullWidth
@@ -101,7 +108,7 @@ class HotelSearch extends React.Component {
                                     variant="outlined"
                                     value={this.state.city}
                                     onChange={this.handleCity}
-
+                                    helperText={this.state.cityValidation}
                                 />
                             </Grid>
                             <Grid item xs={6} sm={4}>
@@ -150,14 +157,14 @@ class HotelSearch extends React.Component {
                         <h1>You don't need to go far to find what matters.</h1>
                         <Grid container justify="center" className="dummy-content">
                             {[0, 1].map((value) => (
-                                <Grid key={value} item xs={6} spacing={2}>
+                                <Grid key={value} item xs={6}>
                                     <Reviews />
                                 </Grid>
                             ))}
                         </Grid>
                         <Grid container justify="center">
                             {[0, 1].map((value) => (
-                                <Grid key={value} item xs={6} spacing={2}>
+                                <Grid key={value} item xs={6}>
                                     <Reviews />
                                 </Grid>
                             ))}
@@ -170,26 +177,6 @@ class HotelSearch extends React.Component {
                 { this.state.goToBookingPage && 
                     <BookingPage hotelDetails={this.state.bookingData}/>
                 }
-                <footer className="footer-container">
-                <Grid container>
-                    <Grid item xs={6} sm={6}>
-                        <h5 class="white-text">Footer Content</h5>
-                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                    </Grid>
-                    <Grid item xs={6} sm={6}>
-                        <h5 class="white-text">Links</h5>
-                        <ul>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                        </ul>
-                    </Grid>
-                </Grid>
-                </footer>
-
-
-
             </div>
         );
     }
